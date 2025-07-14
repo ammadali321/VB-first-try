@@ -1,0 +1,81 @@
+{
+  "title": "main",
+  "description": "",
+  "variables": {
+    "findByStatusListSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "Petstore/findByStatus",
+        "keyAttributes": "id",
+        "itemsPath": "",
+        "responseType": "findByStatusResponse",
+        "uriParameters": {
+          "status": "{{ $variables.status }}"
+        }
+      }
+    },
+    "oj_table_1703225951_1SelectedId": {
+      "type": "string",
+      "defaultValue": ""
+    },
+    "status": {
+      "type": "string"
+    }
+  },
+  "metadata": {},
+  "types": {
+    "@decorators.findByStatusResponse": {
+      "endpoint": "findByStatus",
+      "service": "Petstore",
+      "path": "response"
+    },
+    "findByStatusResponse": [
+      {
+        "id": "number",
+        "name": "string",
+        "status": "string"
+      }
+    ]
+  },
+  "eventListeners": {
+    "oj_table_1703225951_1SelectionChanged": {
+      "chains": [
+        {
+          "chain": "ojTable17032259511ChangeSelectionChain",
+          "parameters": {
+            "petidId": "[[ $event.detail.value.key || '' ]]"
+          }
+        }
+      ]
+    },
+    "petidDetailButtonClicked": {
+      "chains": [
+        {
+          "chain": "navigateToPetidDetailChain",
+          "parameters": {
+            "petidId": "[[ $variables.oj_table_1703225951_1SelectedId ]]"
+          }
+        }
+      ]
+    }
+  },
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-option": {
+        "path": "ojs/ojoption"
+      },
+      "oj-select-many": {
+        "path": "ojs/ojselectcombobox"
+      },
+      "oj-table": {
+        "path": "ojs/ojtable"
+      },
+      "oj-toolbar": {
+        "path": "ojs/ojtoolbar"
+      }
+   }
+  }
+}

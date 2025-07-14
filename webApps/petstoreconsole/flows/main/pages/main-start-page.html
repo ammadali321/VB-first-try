@@ -1,0 +1,23 @@
+<div class="oj-flex">
+  <h1 class="oj-header oj-flex-item oj-sm-12 oj-md-12">Pets</h1>
+</div>
+<div class="oj-flex">
+  <oj-toolbar id="oj-toolbar-for-oj-table-1703225951-1" chroming="solid" class="oj-flex-item oj-sm-12 oj-md-12">
+    <oj-button label="Detail" disabled="[[ $variables.oj_table_1703225951_1SelectedId === '' ]]"
+      on-oj-action="[[$listeners.petidDetailButtonClicked]]"></oj-button>
+    <oj-select-many label-hint="Select (Many)" value="{{ $variables.status }}">
+      <oj-option value="available">available</oj-option>
+      <oj-option value="pending">pending</oj-option>
+      <oj-option value="sold">sold </oj-option>
+    </oj-select-many>
+  </oj-toolbar>
+</div>
+<div class="oj-flex">
+  <oj-table scroll-policy="loadMoreOnScroll" class="oj-flex-item oj-sm-12 oj-md-12"
+    data="[[$variables.findByStatusListSDP]]"
+    columns='[{"headerText":"name","field":"name"},{"headerText":"status","field":"status"}]' id="oj-table-1703225951-1"
+    selection-mode.row="single" selection-mode.column="single"
+    on-first-selected-row-changed="[[ $listeners.oj_table_1703225951_1SelectionChanged ]]"></oj-table>
+</div>
+
+

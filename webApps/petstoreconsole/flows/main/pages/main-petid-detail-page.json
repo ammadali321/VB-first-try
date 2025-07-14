@@ -1,0 +1,58 @@
+{
+  "title": "petid Detail",
+  "description": "Displays petid record",
+  "variables": {
+    "petid": {
+      "type": "petidResponse"
+    },
+    "petidId": {
+      "type": "string",
+      "required": true,
+      "input": "fromUrl"
+    }
+  },
+  "metadata": {},
+  "types": {
+    "@decorators.petidResponse": {
+      "endpoint": "petid",
+      "service": "Petstore",
+      "path": "request"
+    },
+    "petidResponse": {
+      "category": {
+        "name": "string"
+      },
+      "name": "string",
+      "status": "string"
+    }
+  },
+  "eventListeners": {
+    "backButtonClicked": {
+      "chains": [
+        {
+          "chain": "goBackChain"
+        }
+      ]
+    },
+    "vbEnter": {
+      "chains": [
+        {
+          "chain": "loadPetidChain"
+        }
+      ]
+    }
+  },
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-form-layout": {
+        "path": "ojs/ojformlayout"
+      },
+      "oj-input-text": {
+        "path": "ojs/ojinputtext"
+      }
+   }
+  }
+}

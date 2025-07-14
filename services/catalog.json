@@ -1,0 +1,12 @@
+{
+    "backends": {
+        "Petstore": {
+            "servers": [
+                {
+                    "url": "https://petstore3.swagger.io/api/v3",
+                    "description": "Api V3"
+                }
+            ]
+        }
+      }
+}

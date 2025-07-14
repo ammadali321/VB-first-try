@@ -1,0 +1,17 @@
+<oj-vb-fragment id="page-header" bridge="[[vbBridge]]" name="page-header">
+  <oj-vb-fragment-param name="title" value="petid Detail"></oj-vb-fragment-param>
+  <template slot="actions">
+    <oj-button label="Back" on-oj-action="[[$listeners.backButtonClicked]]" chroming="borderless"></oj-button>
+  </template>
+</oj-vb-fragment>
+<div class="oj-flex">
+  <div class="oj-flex-item oj-sm-12 oj-md-12">
+    <oj-form-layout>
+      <oj-input-text value="[[ $variables.petid.name ]]" readonly="true" label-hint="name"></oj-input-text>
+      <oj-input-text value="[[ $variables.petid.status ]]" readonly="true" label-hint="status"></oj-input-text>
+      <oj-input-text value="[[ $variables.petid.category.name ]]" readonly="true" label-hint="Category name"></oj-input-text>
+    </oj-form-layout>
+  </div>
+</div>
+
+
